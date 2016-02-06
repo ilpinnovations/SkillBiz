@@ -1,0 +1,101 @@
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="tcs.myapplication.ThirdFragment"
+    android:orientation="horizontal"
+    android:id="@+id/f3"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/quizUnlock"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:src="@drawable/lock_open128"
+             />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#9dcecbcb"
+            android:text="Unlock Quiz"
+            android:textColor="#fff"
+            android:enabled="false"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:src="@drawable/lock128"
+        android:id="@+id/quizLock" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/quizAttemptButton"
+            android:layout_marginTop="5dp"
+            android:drawablePadding="-10dp"
+            android:background="@drawable/shape"
+            android:drawableTop="@drawable/key64"
+            android:text="Unlock"
+            android:textColor="#90004D40"
+            android:textSize="20dp"
+            android:enabled="false"
+            android:visibility="invisible"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:id="@+id/upLine"
+        android:background="@color/colorAccent"
+        android:layout_above="@+id/infoText"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoText"
+        android:layout_alignParentBottom="true"
+        android:background="#40FFB300"
+        android:padding="10dp"
+        android:textColor="#212020"
+        android:text="Please complete Audio and Video sections to get the Key to open Quiz Lock"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        />
+</RelativeLayout>

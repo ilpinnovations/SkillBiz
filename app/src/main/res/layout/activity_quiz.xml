@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.tcs.skillbiz.QuizActivity"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.75"
+            android:background="@color/colorPrimary">
+
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar"
+                android:layout_marginBottom="-7dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textColor="#d4d2d2"
+                android:layout_margin="5dp"
+                android:text="Topic Name will be displayed here"
+                android:layout_gravity="left"
+                android:id="@+id/textView2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="#d4d2d2"
+                android:text="2 / 15"
+                android:layout_margin="5dp"
+                android:gravity="center_vertical"
+                android:layout_alignParentRight="true"
+                android:id="@+id/questionProgress" />
+
+
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            app:cardBackgroundColor="#7be9e9ea">
+
+                <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/question"
+                android:text="Hello, I am a Question!"
+                android:gravity="center_horizontal|center_vertical"
+                android:textSize="20sp"
+                android:textColor="#be000000"
+                android:textStyle="italic"
+                android:padding="@dimen/cardview_default_elevation"/>
+        </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        android:background="#1e1224ec"
+        >
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/option1"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="#60E8EAF6"
+            >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/qOption1"
+            android:text="I am Option1"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="20sp"
+            android:padding="@dimen/cardview_default_elevation"/>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/option2"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="#60E8EAF6">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/qOption2"
+            android:text="I am Option2"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="20sp"
+            android:padding="@dimen/cardview_default_elevation"/>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/option3"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="#60E8EAF6">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/qOption3"
+            android:text="I am Option3"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="20sp"
+            android:padding="@dimen/cardview_default_elevation"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+
+                />
+        </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/option4"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="#60E8EAF6">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/qOption4"
+            android:text="I am Option4"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="20sp"
+            android:padding="@dimen/cardview_default_elevation"/>
+
+        </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.75"
+            android:text="@string/disabledButtonMessage"
+            android:id="@+id/resultButton"
+            android:textSize="20sp"
+            android:enabled="false"
+            android:textColor="#565353"
+            android:background="@color/colorAccent"/>
+    </LinearLayout>
+</LinearLayout>

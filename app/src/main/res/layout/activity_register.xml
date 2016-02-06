@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".RegisterActivity"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".47"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:id="@+id/ll"
+        android:layout_weight="2">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/emp_id"
+            android:textSize="20sp"
+            android:inputType="number"
+            android:layout_margin="10dp"
+            android:hint="EMP_ID"
+            android:textColorHint="#70757575"
+            android:textAlignment="center"
+
+            android:background="@drawable/editshape"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="7dp"
+            android:inputType="textPassword"
+            android:id="@+id/password"
+            android:textSize="20sp"
+            android:hint="PASSWORD"
+            android:textColorHint="#70757575"
+            android:textAlignment="center"
+            android:background="@drawable/editshape"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="7dp"
+            android:id="@+id/nickname"
+            android:textSize="20sp"
+            android:hint="NICK NAME"
+            android:textColorHint="#70757575"
+            android:textAlignment="center"
+            android:background="@drawable/editshape"
+            />
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Your Avatar"
+        android:layout_marginTop="4sp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_margin="5sp"
+        android:layout_weight="1"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user_icon"
+            android:padding="5sp"
+            android:onClick="onAvathar"
+            android:id="@+id/male"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/userfemale"
+            android:padding="5sp"
+            android:onClick="onAvathar"
+            android:id="@+id/female"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:background="@drawable/avatharbackground"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="10dp"
+            android:text="REGISTER"
+            android:id="@+id/button"
+            android:textSize="20sp"
+            android:background="@drawable/shape"
+            android:textColor="@color/colorPrimaryDark"
+            android:onClick="Register"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

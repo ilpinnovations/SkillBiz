@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="tcs.myapplication.TwoFragment"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/video_thumb"
+            android:alpha="1"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#70000000"
+            />
+
+
+        <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/play"
+        android:layout_centerInParent="true"
+        android:src="@drawable/play_yellow_48" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:id="@+id/textBody"
+        android:background="@drawable/background"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/introText"
+            android:layout_margin="10dp"
+            android:layout_centerVertical="true"
+            android:text="Objectives of this video section are: \n
+            o Enhance Speaking skills of Individual\n
+            o Enhance Listening Skills\n
+            o Gives example on Real world Scenario\n
+            o Next one is the dummy text\n
+            o dummy text dummy text dummy text "/>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
