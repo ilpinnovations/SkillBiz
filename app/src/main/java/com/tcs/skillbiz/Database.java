@@ -132,8 +132,12 @@ public class Database {
         String query = "SELECT "+
                 DBHelper.COLUMN_EMP_ID+", "+
                 "MAX("+DBHelper.COLUMN_SCORES_UPDATE_TIME+") AS updated_timestamp, "+
-                "SUM("+DBHelper.COLUMN_SCORES+") AS score_sum "+
-                "FROM "+DBHelper.TABLE_USER_ACTIVITY+
+                "SUM("+DBHelper.COLUMN_SCORES+") AS score_sum, "+
+                "(SELECT "+DBHelper.COLUMN_NICKNAME+" FROM "+DBHelper.TABLE_LOGIN+
+                " t2 WHERE t2."+DBHelper.COLUMN_EMP_ID+" = t1."
+                +DBHelper.COLUMN_EMP_ID+") as "+DBHelper.COLUMN_EMP_ID+
+                " FROM "+DBHelper.TABLE_USER_ACTIVITY+" t1 "+
+                "WHERE "+DBHelper.COLUMN_SCORES+">0"+
                 " GROUP BY "+DBHelper.COLUMN_EMP_ID+" "+
                 " ORDER BY score_sum DESC, updated_timestamp ASC";
 

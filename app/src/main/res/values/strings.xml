@@ -11,4 +11,5 @@
     <string name="disabledButtonMessage">Select one option</string>
     <string name="checkButtonMessage">Check</string>
     <string name="nextButtonMessage">Next</string>
+    <string name="leaderBoard">Leader Board</string>
 </resources>

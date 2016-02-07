@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/trophy_banner"/>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/label"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal"
+        android:padding="10dip"
+        android:textStyle="bold" >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="#"
+            android:textSize="18dip"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:id="@+id/leaaderPosition"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="Emp ID"
+            android:textSize="18dip"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:id="@+id/leaaderEmpID"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:text="Name"
+            android:textSize="18dip"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:id="@+id/leaaderName"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.75"
+            android:text="Score"
+            android:textSize="18dip"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:id="@+id/leaaderScore"/>
+
+
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/leaderList"/>
+
+
+</LinearLayout>

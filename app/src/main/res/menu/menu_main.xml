@@ -7,4 +7,11 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/leader_settings"
+        android:orderInCategory="101"
+        android:title="@string/leaderBoard"
+        app:showAsAction="always" />
+
 </menu>

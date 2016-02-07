@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Single List Item Design -->
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/label"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dip"
+    android:textStyle="bold" >
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="1"
+        android:textSize="18dip"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:id="@+id/leaaderPosition"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:text="1"
+        android:textSize="18dip"
+        android:id="@+id/leaaderEmpID"/>
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:text="1"
+        android:textSize="18dip"
+        android:textAlignment="center"
+        android:id="@+id/leaaderName"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.75"
+        android:text="Score"
+        android:textSize="18dip"
+        android:textAlignment="center"
+        android:id="@+id/leaaderScore"/>
+</LinearLayout>
+
+<View
+android:layout_width="match_parent"
+android:layout_height="1dp"
+android:background="#cac7c7"
+    />
+    </LinearLayout>

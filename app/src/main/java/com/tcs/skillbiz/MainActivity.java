@@ -9,8 +9,11 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +22,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements Communicator {
 
@@ -46,16 +51,21 @@ public class MainActivity extends AppCompatActivity implements Communicator {
         Nick_name=getIntent().getStringExtra("NickName");
         Avatar=getIntent().getIntExtra("Avatar", 00000);
 
-        if(SplashScreen.firstTime) {
-
-        }
-
         setupNavigationDrawer();
 
         //Calling Topics Fragment
         android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.enter_vertical, R.anim.exit_vertical, R.anim.pop_enter, R.anim.pop_exit);
         transaction.replace(R.id.contentLayout, new TopicsFragment()).commit();
+
+        Cursor cursor = database.leaderBoardRetrieve();
+
+        Log.d("SkillBiz", "LeaderBoard Cursor Size: " + cursor.getCount());
+
+        while (cursor.moveToNext()) {
+            Log.d("SkillBiz","LeaderBoardTag: "+cursor.getString(0)+" "+cursor.getString(1)+" "+cursor.getString(2));
+        }
+
         }
 
     @Override
@@ -177,8 +187,55 @@ public class MainActivity extends AppCompatActivity implements Communicator {
             return true;
         }
 
+        if(id == R.id.action_settings) {
+            return true;
+        }
+
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.leader_settings) {
+
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+            // ...Irrelevant code for customizing the buttons and title
+            LayoutInflater inflater = this.getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.leader_board, null);
+            dialogBuilder.setView(dialogView);
+
+            Cursor cursor = database.leaderBoardRetrieve();
+
+            Log.d("SkillBiz", "LeaderBoard Cursor Size: " + cursor.getCount());
+
+            ArrayList<LeaderBean> leaderBeans = new ArrayList<>();
+
+            int i=0;
+
+            while (cursor.moveToNext() && i<=5) {
+                Log.d("SkillBiz","LeaderBoardTag: "+cursor.getString(0)+" "+cursor.getString(1)+" "+cursor.getString(2)+" "+cursor.getString(3));
+//                listRows[i] = cursor.getString(0)+"\t"+cursor.getString(2);
+                LeaderBean leaderBean  = new LeaderBean();
+                leaderBean.setEmpId(cursor.getString(0));
+                leaderBean.setName(cursor.getString(3));
+                leaderBean.setScore(cursor.getString(2));
+
+                leaderBeans.add(leaderBean);
+                i++;
+            }
+
+            RecyclerView recyclerView = (RecyclerView) dialogView.findViewById(R.id.leaderList);
+            LeaderRecycleAdapter leaderRecycleAdapter = new LeaderRecycleAdapter(this,leaderBeans);
+            recyclerView.setAdapter(leaderRecycleAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+            dialogBuilder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            AlertDialog alertDialog = dialogBuilder.create();
+            alertDialog.show();
+
             return true;
         }
 
