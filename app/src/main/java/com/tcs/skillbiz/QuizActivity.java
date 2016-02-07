@@ -159,6 +159,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    Database database = new Database(QuizActivity.this);
+                    if(database.isCompleted(MainActivity.Emp_id,ContentFragment.topicId, Database.DBHelper.COLUMN_IS_QUIZ_COMPLETED))
+                        ContentFragment.tabLayout.getTabAt(2).setIcon(R.drawable.quiz_success96);
+
                     finish();
                 }
             });

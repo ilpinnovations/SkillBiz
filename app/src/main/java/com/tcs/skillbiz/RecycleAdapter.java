@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -62,9 +63,14 @@ public class RecycleAdapter extends RecyclerView.Adapter <RecycleAdapter.Recycle
     public void onBindViewHolder(RecycleViewHolder holder, int position)
     {
         final TopicBean currentData = topicBeanList.get(position);
-        holder.title.setText(currentData.getId()+"");
+        holder.title.setText(currentData.getId() + "");
         holder.subTitle.setText(currentData.getName());
         setAnimation(holder.cardView, position);
+
+        Database database = new Database(context);
+        if(database.isCompleted(MainActivity.Emp_id,currentData.getId(), Database.DBHelper.COLUMN_IS_QUIZ_COMPLETED))
+            holder.imageView.setVisibility(View.VISIBLE);
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
                     public void onClick(View v) {
@@ -95,6 +101,7 @@ public class RecycleAdapter extends RecyclerView.Adapter <RecycleAdapter.Recycle
 
         TextView title, subTitle;
         CardView cardView;
+        ImageView imageView;
 
         public RecycleViewHolder(View itemView)
         {
@@ -102,6 +109,8 @@ public class RecycleAdapter extends RecyclerView.Adapter <RecycleAdapter.Recycle
             title = (TextView)itemView.findViewById(R.id.Title);
             subTitle = (TextView)itemView.findViewById(R.id.subTitle);
             cardView=(CardView)itemView.findViewById(R.id.CV);
+            imageView = (ImageView)itemView.findViewById(R.id.successIcon);
+
 
             Log.d("!!!t", title.getText().toString());
             Log.d("!!!sT", subTitle.getText().toString());

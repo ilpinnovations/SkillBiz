@@ -55,10 +55,10 @@ public class VideoActivity extends AppCompatActivity {
                 public void onCompletion(MediaPlayer mp) {
                     updateDb();
                     Toast.makeText(VideoActivity.this,"Video onCompletion Called",Toast.LENGTH_SHORT).show();
-
-//                    ContentFragment.tabLayout.getTabAt(ContentFragment.tabLayout.getSelectedTabPosition()).setIcon(R.drawable.audio_done2_96);
-////                    ContentFragment.tabLayout.getTabAt(0).setIcon(R.drawable.audio_done96);
-////                    ContentFragment.tabLayout.getTabAt(2).setIcon(R.drawable.audio_done96);
+                    Database database = new Database(VideoActivity.this);
+                    if(database.isCompleted(MainActivity.Emp_id,ContentFragment.topicId, Database.DBHelper.COLUMN_IS_VIDEO_COMPLETED))
+                        ContentFragment.tabLayout.getTabAt(1).setIcon(R.drawable.video_success96);
+                    //ContentFragment.tabLayout.getTabAt(0).setIcon(R.drawable.audio_success96);
                     finish();
                 }
             });

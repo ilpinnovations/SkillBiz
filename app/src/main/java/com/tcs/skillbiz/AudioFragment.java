@@ -65,6 +65,10 @@ public class AudioFragment extends android.support.v4.app.Fragment {
             }
         });
 
+        Database database = new Database(getActivity());
+        if(database.isCompleted(MainActivity.Emp_id,ContentFragment.topicId, Database.DBHelper.COLUMN_IS_AUDIO_COMPLETED))
+            ContentFragment.tabLayout.getTabAt(0).setIcon(R.drawable.audio_success96);
+
 
     }
 
@@ -111,6 +115,11 @@ public class AudioFragment extends android.support.v4.app.Fragment {
             public void onCompletion(MediaPlayer mp) {
                 updateDb();
                 floatingActionButton.setImageResource(android.R.drawable.ic_media_play);
+                Database database = new Database(getActivity());
+                if(database.isCompleted(MainActivity.Emp_id,ContentFragment.topicId, Database.DBHelper.COLUMN_IS_AUDIO_COMPLETED))
+                    ContentFragment.tabLayout.getTabAt(0).setIcon(R.drawable.audio_success96);
+
+
 //              Toast.makeText(getActivity(),"Audio onCompletion Called",Toast.LENGTH_SHORT).show();
             }
         });

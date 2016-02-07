@@ -89,6 +89,9 @@ public class QuizFragment extends android.support.v4.app.Fragment {
             }
         });
 
+        Database database = new Database(getActivity());
+        if(database.isCompleted(MainActivity.Emp_id,ContentFragment.topicId, Database.DBHelper.COLUMN_IS_QUIZ_COMPLETED))
+            ContentFragment.tabLayout.getTabAt(2).setIcon(R.drawable.quiz_success96);
 
     }
 

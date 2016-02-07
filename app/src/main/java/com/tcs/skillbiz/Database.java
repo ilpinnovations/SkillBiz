@@ -117,17 +117,6 @@ public class Database {
     public Cursor leaderBoardRetrieve() {
 
         SQLiteDatabase database=db.getWritableDatabase();
-/*
-        String query = "SELECT *,( "+
-                "SELECT COUNT("+DBHelper.COLUMN_SCORES+ ") AS count "+
-                "FROM "+ DBHelper.TABLE_USER_ACTIVITY+ " m2 "+
-                "WHERE m1."+DBHelper.COLUMN_SCORES + " = m2."+DBHelper.COLUMN_SCORES+") "+
-                "FROM "+DBHelper.TABLE_USER_ACTIVITY + " m1 "+
-                "WHERE "+DBHelper.COLUMN_SCORES_UPDATE_TIME +" = (SELECT MAX("+DBHelper.COLUMN_SCORES_UPDATE_TIME+") "+
-                "FROM "+ DBHelper.TABLE_USER_ACTIVITY + " m3 "+
-                "WHERE m1."+DBHelper.COLUMN_SCORES+" = m3."+DBHelper.COLUMN_SCORES+") "+
-                "GROUP BY "+ DBHelper.COLUMN_SCORES;
-*/
 
         String query = "SELECT "+
                 DBHelper.COLUMN_EMP_ID+", "+
@@ -141,10 +130,9 @@ public class Database {
                 " GROUP BY "+DBHelper.COLUMN_EMP_ID+" "+
                 " ORDER BY score_sum DESC, updated_timestamp ASC";
 
-                Log.d("SkillBiz", "LeaderBoard Query String: "+query);
+        Log.d("SkillBiz", "LeaderBoard Query String: "+query);
 
         Cursor cursor = database.rawQuery(query,null);
-
         return cursor;
     }
 
@@ -164,8 +152,6 @@ public class Database {
             cv.put(COLUMN_NAME, "TRUE");
 
         int j=database.update(DBHelper.TABLE_USER_ACTIVITY,cv,DBHelper.COLUMN_EMP_ID+" = ? AND "+DBHelper.COLUMN_TOPIC_ID+" = ?", new String[]{STR_EMP_ID,STR_TOPIC_ID});
-
-
 
         return j;
     }

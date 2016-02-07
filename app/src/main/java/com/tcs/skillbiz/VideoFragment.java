@@ -41,11 +41,16 @@ public class VideoFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
 
                 play.setVisibility(View.INVISIBLE);
-                Intent i=new Intent(getContext(),VideoActivity.class);
-                startActivityForResult(i,1);
+                Intent i = new Intent(getContext(), VideoActivity.class);
+                startActivityForResult(i, 1);
 
             }
         });
+
+        Database database = new Database(getActivity());
+        if(database.isCompleted(MainActivity.Emp_id,ContentFragment.topicId, Database.DBHelper.COLUMN_IS_VIDEO_COMPLETED))
+        ContentFragment.tabLayout.getTabAt(1).setIcon(R.drawable.video_success96);
+
     }
 
     @Override
